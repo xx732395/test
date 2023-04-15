@@ -14,11 +14,11 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Commit changes
         run: |
+          rm -rf node_modules
           git config --global user.email "421826878@qq.com"
           git config --global user.name "xx732395"
           npm install
           git branch
-          rm -rf node_modules
           echo 555 >> 123.txt
           npm run release-publish
         env:
