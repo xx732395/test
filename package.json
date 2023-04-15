@@ -1,3 +1,21 @@
 {
-  "version": "0.0.1"
+  "version": "0.0.1",
+   "release-it": {
+    "git": {
+      "requireBranch": [
+        "main"
+      ],
+      "tag": true,
+      "commitMessage": "release: ${name} ${version}",
+      "addUntrackedFiles": true
+    },
+    "hooks": {
+      "before:init": "echo before:init",
+      "before:release": "echo before:release",
+      "after:release": "echo after:release"
+    }
+  },
+   "devDependencies": {
+    "release-it": "^15.10.1"
+  },
 }
