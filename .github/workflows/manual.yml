@@ -16,6 +16,7 @@ jobs:
           echo "New version is $NEW_VERSION"
           git branch
           sed -i "s/$VERSION/$NEW_VERSION/g" package.json
+          echo "$NEW_VERSION >> 1.txt"
       - name: Commit changes
         run: |
           git config --global user.email "421826878@qq.com"
