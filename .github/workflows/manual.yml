@@ -8,17 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Bump version
-        run: |
-          VERSION=`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g'`
-          echo "Current version is $VERSION"
-          NEW_VERSION="$VERSION.0.1"
-          echo "New version is $NEW_VERSION"
-          git branch
-          sed -i "s/$VERSION/$NEW_VERSION/g" package.json
-          echo "$NEW_VERSION >> 1.txt"
       - name: Commit changes
         run: |
+          git branch
+          echo 123 >> 1.txt
           git config --global user.email "421826878@qq.com"
           git config --global user.name "xx732395"
           git add .
