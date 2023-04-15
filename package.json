@@ -1,6 +1,56 @@
 {
-  "version": "0.0.1",
-   "release-it": {
+  "name": "emitter-test-test",
+  "version": "1.0.2",
+  "description": "is typescript pubsub",
+  "author": "HaoChiGuoZi<421826878@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/xx732395/emitter-service#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xx732395/emitter-service.git"
+  },
+  "bugs": "https://github.com/xx732395/emitter-service/issues",
+  "keywords": [
+    "pubsub",
+    "emitter-service",
+    "Publish Subscription",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "release-publish": "release-it --npm.skipChecks --no-git.requireCleanWorkingDir --ci",
+    "test": "vitest",
+    "lint-staged": "lint-staged",
+    "lint:eslint": "eslint \"src/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{ts,js,json,tsx,css,less,scss,vue,html,md}\""
+  },
+  "devDependencies": {
+    "release-it": "^15.10.1"
+  },
+  "release-it": {
     "git": {
       "requireBranch": [
         "main"
@@ -10,12 +60,9 @@
       "addUntrackedFiles": true
     },
     "hooks": {
-      "before:init": "echo before:init",
+      "before:init": "echo 123",
       "before:release": "echo before:release",
       "after:release": "echo after:release"
     }
-  },
-   "devDependencies": {
-    "release-it": "^15.10.1"
-  },
+  }
 }
