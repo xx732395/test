@@ -24,3 +24,13 @@ jobs:
       - name: Push changes
         run: |
           git push origin
+      - name: Create Release 
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ NEW_VERSION }}
+          release_name: Release ${{ NEW_VERSION }} 
+          body: |
+            Changes in this Release
+            - Bump version to ${{ NEW_VERSION }}
