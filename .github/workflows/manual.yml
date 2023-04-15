@@ -7,7 +7,7 @@ jobs:
   bump-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  
+      - uses: actions/checkout@v3
       - name: Bump version
         run: |
           VERSION=`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g'`
@@ -17,7 +17,7 @@ jobs:
           sed -i "s/$VERSION/$NEW_VERSION/g" package.json
       - name: Commit changes
         run: |
-          git config --global user.email "you@example.com"
+          git config --global user.email "421826878@qq.com"
           git config --global user.name "Your Name"
           git add package.json
           git commit -m "Bump version to $NEW_VERSION"
