@@ -18,11 +18,9 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.email "421826878@qq.com"
-          git config --global user.name "Your Name"
+          git config --global user.name "xx732395"
           git add package.json
           git commit -m "Bump version to $NEW_VERSION"
-      - name: Push changes
-        run: |
           git push origin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
