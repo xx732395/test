@@ -14,12 +14,13 @@ jobs:
           echo "Current version is $VERSION"
           NEW_VERSION="$VERSION.0.1"
           echo "New version is $NEW_VERSION"
+          git branch
           sed -i "s/$VERSION/$NEW_VERSION/g" package.json
       - name: Commit changes
         run: |
           git config --global user.email "421826878@qq.com"
           git config --global user.name "xx732395"
-          git add package.json
+          git add .
           git commit -m "Bump version to $NEW_VERSION"
           git push origin
         env:
