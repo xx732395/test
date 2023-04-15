@@ -11,9 +11,7 @@ jobs:
       - name: Commit changes
         run: |
           git branch
-          echo 123 >> 1.txt
-          git config --global user.email "421826878@qq.com"
-          git config --global user.name "xx732395"
+          echo 456 >> 1.txt
           git add .
           git commit -m "Bump version to $NEW_VERSION"
           git push origin
