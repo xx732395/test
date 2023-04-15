@@ -14,6 +14,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Commit changes
         run: |
+          git config --global user.email "421826878@qq.com"
+          git config --global user.name "xx732395"
           npm install
           git branch
           echo 456 >> 1.txt
