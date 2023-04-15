@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2  # 检出代码
+      - name: Bump version
+        run: |
+          VERSION=`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g'`
+          echo "Current version is $VERSION"
+          NEW_VERSION="$VERSION.0.1"
+          echo "New version is $NEW_VERSION"
+          sed -i "s/$VERSION/$NEW_VERSION/g" package.json
+      - name: Commit changes
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add package.json
+          git commit -m "Bump version to $NEW_VERSION"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
