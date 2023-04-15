@@ -18,10 +18,9 @@ jobs:
           git config --global user.name "xx732395"
           npm install
           git branch
-          echo 456 >> 1.txt
-          git add .
-          git commit -m "Bump version to $NEW_VERSION"
-          git push origin
+          rm -rf node_modules
+          echo 555 >> 123.txt
+          npm run release-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
